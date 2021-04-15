@@ -2,5 +2,9 @@
 #include "funcs.h"
 
 void foo(){
-printf("hello foo\n");
+	int flag = 0;
+	if(!flag){
+		printf("hello foo\n");
+		printf("new foo\n");
+	}
 }
