@@ -1,0 +1,26 @@
+PROJ_DIR=${PWD}
+INC_DIR=${PROJ_DIR}/include
+BIN_DIR=${PROJ_DIR}/bin
+OBJ_DIR=${PROJ_DIR}/obj
+
+.SUFFIXES: .o .c
+
+OBJFILES= ${OBJ_DIR}/foo.o ${OBJ_DIR}/goo.o ${OBJ_DIR}/myapp.o
+
+all: ./bin/myapp
+
+./bin/myapp: $(OBJFILES)
+	gcc -o ./bin/myapp $(OBJ
+./obj/%.o: ./src/%.c
+	gcc -c $< -o $@ $(INCLUDE)
+
+#./obj/foo.o: ./src/foo.c
+#	gcc -c ./src/foo.c -o ./obj/foo.o $(INCLUDE)
+#./obj/goo.o: ./src/goo.c
+#	gcc -c ./src/goo.c -o ./obj/goo.o $(INCLUDE)
+#./obj/myapp.o: ./src/myapp.c
+#	gcc -c ./src/myapp.c -o ./obj/myapp.o $(INCLUDE)
+
+clean:
+	rm ./obj/*.o
+	rm ./bin/*
